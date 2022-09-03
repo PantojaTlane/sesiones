@@ -21,7 +21,7 @@ if((!empty($_POST["email"]))&&(!empty($_POST["password"]))){
         $row = mysqli_fetch_array($result);
         if(password_verify($password,$row["password"])){
             $_SESSION["user_id"] = $row["id"];
-            header("Location: /curso-php/sesion_3");
+            header("Location: index.php");
         }else{
             $message = "Contraseña incorrecta";
         }
