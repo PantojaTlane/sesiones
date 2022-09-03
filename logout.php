@@ -6,6 +6,6 @@ session_unset();
 
 session_destroy();
 
-header("Location: /curso-php/sesion_3");
+header("Location: index.php");
 
 ?>
