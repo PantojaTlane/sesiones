@@ -23,9 +23,11 @@ if((!empty($_POST["email"]))&&(!empty($_POST["password"]))){
             $_SESSION["user_id"] = $row["id"];
             header("Location: index.php");
         }else{
-            $message = "Contraseña incorrecta";
+            $original = $row['password'];
+            $message = "Contraseña incorrecta: original: " + $original;
         }
     }else{
+
         $message = "No existe ese correo";
     }
 }
@@ -39,7 +41,6 @@ if((!empty($_POST["email"]))&&(!empty($_POST["password"]))){
     <?php if(!empty($message)): ?>
         <p><?= $message ?></p>
     <?php endif; ?>
-
     <form action="login.php" method="post">
         <input type="text" name="email" placeholder="Enter your email">
         <input type="password" name="password" placeholder="Enter your password">
